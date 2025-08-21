@@ -1,0 +1,18 @@
+
+java.lang.RuntimeException: com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (tried: localhost/127.0.0.1:9042 (com.datastax.driver.core.exceptions.TransportException: [localhost/127.0.0.1:9042] Cannot connect))
+        at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:142)
+        at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:111)
+        at org.apache.cassandra.stress.settings.SettingsSchema.createKeySpaces(SettingsSchema.java:66)
+        at org.apache.cassandra.stress.settings.StressSettings.maybeCreateKeyspaces(StressSettings.java:150)
+        at org.apache.cassandra.stress.StressAction.run(StressAction.java:58)
+        at org.apache.cassandra.stress.Stress.run(Stress.java:101)
+        at org.apache.cassandra.stress.Stress.main(Stress.java:54)
+Caused by: com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (tried: localhost/127.0.0.1:9042 (com.datastax.driver.core.exceptions.TransportException: [localhost/127.0.0.1:9042] Cannot connect))
+        at com.datastax.driver.core.ControlConnection.reconnectInternal(ControlConnection.java:270)
+        at com.datastax.driver.core.ControlConnection.connect(ControlConnection.java:109)
+        at com.datastax.driver.core.Cluster$Manager.negotiateProtocolVersionAndConnect(Cluster.java:1813)
+        at com.datastax.driver.core.Cluster$Manager.init(Cluster.java:1726)
+        at com.datastax.driver.core.Cluster.getMetadata(Cluster.java:462)
+        at org.apache.cassandra.stress.util.JavaDriverClient.connect(JavaDriverClient.java:194)
+        at org.apache.cassandra.stress.settings.StressSettings.getJavaDriverClient(StressSettings.java:133)
+        ... 6 more
